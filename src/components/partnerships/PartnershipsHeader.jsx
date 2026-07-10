@@ -1,9 +1,7 @@
-import Button from "../common/Button";
 
 function PartnershipsHeader() {
   return (
     <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-      {/* Left */}
       <div className="max-w-[620px]">
         <div className="flex items-center gap-4">
           <span className="text-xs font-semibold text-[#5865F2] lg:text-sm">
@@ -24,15 +22,8 @@ function PartnershipsHeader() {
           beautiful digital products, brands, and experiences.
         </p>
       </div>
-
-      {/* Right */}
-      <div className="self-start lg:mt-2">
-        <Button>
-          Contact Us
-        </Button>
-      </div>
     </div>
   );
 }
 
-export default PartnershipsHeader;
+export default PartnershipsHeader
