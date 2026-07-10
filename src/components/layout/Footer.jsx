@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+
+import { NavLink } from "react-router-dom";
 import {
   FaFacebookF,
   FaYoutube,
@@ -12,39 +12,24 @@ import heroPath from "../../assets/images/hero-path.svg";
 import { navLinks } from "../../constants/navigation";
 
 function Footer() {
-  const [selected] = useState("Home");
-
   return (
     <footer className="relative overflow-hidden bg-white pt-16 lg:pt-24">
-      {/* Background Path */}
       <img
         src={heroPath}
         alt=""
-        className="
-          pointer-events-none
-          absolute
-          left-0
-          top-0
-          w-[220px]
-          opacity-30
-
-          lg:left-auto
-          lg:right-0
-          lg:top-0
-          lg:w-[420px]
-        "
+        className="pointer-events-none absolute left-0 top-0 w-[220px] opacity-30 lg:left-auto lg:right-0 lg:top-0 lg:w-[420px]"
       />
-
-      {/* ================= DESKTOP ================= */}
 
       <div className="hidden lg:block">
         <div className="mx-auto max-w-[1200px] px-8">
           <div className="flex flex-col items-center">
-            <img
-              src={logo}
-              alt="Folio"
-              className="h-14"
-            />
+            <NavLink to="/">
+              <img
+                src={logo}
+                alt="Folio"
+                className="h-14"
+              />
+            </NavLink>
 
             <p className="mt-10 max-w-[700px] text-center text-xl leading-10 text-[#6C6C7A]">
               Agency is a full-service agency, busy designing and
@@ -56,16 +41,18 @@ function Footer() {
               <ul className="flex gap-16">
                 {navLinks.map((item) => (
                   <li key={item.id}>
-                    <a
-                      href={item.path}
-                      className={`font-medium transition ${
-                        item.name === "About"
-                          ? "text-[#5865F2]"
-                          : "text-[#8B8B96] hover:text-[#5865F2]"
-                      }`}
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `font-medium transition-colors duration-300 ${
+                          isActive
+                            ? "text-[#5865F2]"
+                            : "text-[#8B8B96] hover:text-[#5865F2]"
+                        }`
+                      }
                     >
                       {item.name}
-                    </a>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -75,7 +62,7 @@ function Footer() {
 
             <div className="flex w-full items-center justify-between py-8">
               <p className="text-[#A3A3AD]">
-                © 2020, UI8 LLC.
+                ©️ 2020, UI8 LLC.
               </p>
 
               <div className="flex items-center gap-8">
@@ -102,48 +89,42 @@ function Footer() {
         </div>
       </div>
 
-      {/* ================= MOBILE ================= */}
-
       <div className="px-8 pb-10 lg:hidden">
         <div className="flex justify-center">
-          <img
-            src={logo}
-            alt="Folio"
-            className="h-12"
-          />
+          <NavLink to="/">
+            <img
+              src={logo}
+              alt="Folio"
+              className="h-12"
+            />
+          </NavLink>
         </div>
 
         <p className="mt-8 text-center text-lg leading-9 text-[#8A8A94]">
-          Agency is a full-service agency,
-          busy designing and building.
+          Agency is a full-service agency, busy designing and
+          building.
         </p>
 
-        {/* Dropdown */}
-
-        <div className="mt-10">
-          <button
-            className="
-              flex
-              w-full
-              items-center
-              justify-between
-              rounded-xl
-              border
-              border-[#E6E6EE]
-              bg-white
-              px-5
-              py-4
-            "
-          >
-            <span className="font-medium">
-              {selected}
-            </span>
-
-            <ChevronDown size={20} />
-          </button>
-        </div>
-
-        {/* Social Icons */}
+        <nav className="mt-10">
+          <ul className="space-y-3">
+            {navLinks.map((item) => (
+              <li key={item.id}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `block rounded-xl border border-[#E6E6EE] px-5 py-4 font-medium transition-colors duration-300 ${
+                      isActive
+                        ? "bg-[#5865F2] text-white"
+                        : "text-[#252547] hover:bg-[#F7F7FD]"
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="mt-10 flex justify-center gap-5">
           <button className="flex h-12 w-12 items-center justify-center rounded-full bg-[#5865F2] text-white transition">
@@ -160,7 +141,7 @@ function Footer() {
         </div>
 
         <p className="mt-10 text-center text-[#A5A5AF]">
-          © 2020, UI8 LLC.
+          ©️ 2020, UI8 LLC.
         </p>
       </div>
     </footer>

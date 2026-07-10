@@ -1,4 +1,4 @@
-import overOne from "../../assets/images/over-1.png";
+import overOne from "../../assets/images/Over-1.png";
 import recent from "../../assets/images/recent.png";
 import heroPath from "../../assets/images/hero-path.svg";
 
