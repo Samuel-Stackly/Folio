@@ -1,5 +1,9 @@
+import Partnerships from "../components/partnerships/Partnerships";
+
 function Services() {
-  return <h1>Services Page</h1>;
+  return <>
+  <Partnerships />
+  </>
 }
 
 export default Services;

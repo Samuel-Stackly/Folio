@@ -1,5 +1,9 @@
-function Jobs() {
-  return <h1>Jobs Page</h1>;
+import Jobs from "../components/Jobs/Jobs";
+
+function JobsPage() {
+  return <>
+   <Jobs />
+  </>
 }
 
-export default Jobs;
+export default JobsPage;

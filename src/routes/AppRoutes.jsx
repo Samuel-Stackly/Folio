@@ -8,6 +8,7 @@ import Work from "../pages/Work";
 import Services from "../pages/Services";
 import Jobs from "../pages/Jobs";
 import MainLayout from "../layouts/MainLayout";
+import JobsPage from "../pages/Jobs";
 
 function AppRoutes() {
   return (
@@ -18,7 +19,7 @@ function AppRoutes() {
           <Route path="about" element={<Home />} />
           <Route path="work" element={<Work />} />
           <Route path="services" element={<Services />} />
-          <Route path="jobs" element={<Jobs />} />
+          <Route path="jobs" element={<JobsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
